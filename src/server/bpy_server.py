@@ -61,7 +61,9 @@ def run():
         response.content_type = 'application/octet-stream'  # type: ignore
         return payload
     
-    def run_server(): bottle.run(app, host='0.0.0.0', port=BPY_PORT, server='tornado')
+    def run_server():
+        host = os.environ.get('BPY_HOST', '127.0.0.1')
+        bottle.run(app, host=host, port=BPY_PORT, server='tornado')
     threading.Thread(target=run_server, daemon=False).start()
     
     while True:
