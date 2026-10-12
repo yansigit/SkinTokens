@@ -135,6 +135,7 @@ python demo.py --input examples/ --output results/ --use_transfer
 ### Troubleshooting
 
 - **Server fails to start**: Make sure `http_proxy` / `https_proxy` environment variables are unset or correctly configured.
+- **Blender server not reachable from another machine**: `bpy_server` listens on `127.0.0.1` by default. Start it with `BPY_HOST=0.0.0.0` to listen on all interfaces. An empty `BPY_HOST` stays on loopback.
 - **Blender export issues**: Remove the `glTF_not_exported` node when importing results into Blender.
 
 ## 🙏 Acknowledgements
